@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   def create
     # render plain: params[:article].inspect 
     @article = Article.new(article_params)
-    # hack to maintain integrity before we've built the rest of the User functionality
+    # hack to maintain integrity until build
     @article.user = User.first
     if @article.save
       flash[:success] = "Article saved successfully"
