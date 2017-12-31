@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
     # render plain: params[:article].inspect 
     @article = Article.new(article_params)
     # hack to maintain integrity until build
-    @article.user = User.first
+    @article.user = current_user
     if @article.save
       flash[:success] = "Article saved successfully"
       redirect_to article_path(@article)
